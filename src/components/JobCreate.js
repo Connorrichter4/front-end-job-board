@@ -47,6 +47,8 @@ const JobCreate = () => {
 			method: 'POST',
 			headers: {
 				'Content-type': 'application/json; charset=UTF-8',
+				Authorization:
+					'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYmYwNzY5ZTc2NmQ2YzY3MTk5NmIyNiIsImlhdCI6MTU4OTU3ODU1OCwiZXhwIjoxNTg5NjE0NTU4fQ.bQ4hJw16LplhbHhMXo4-mWFM4vEoQOzM-KkYLrCtRpc',
 			},
 			body: JSON.stringify(job),
 		})

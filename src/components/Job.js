@@ -17,11 +17,17 @@ const Job = ({ match }) => {
 				// so we can give feedback to the user!
 				setError(true);
 			});
-	}, []);
+	}, [match.params.id]);
 
 	const onDeleteJob = (event) => {
 		const url = `${APIURL}/jobs/${match.params.id}`;
-		fetch(url, { method: 'DELETE' })
+		fetch(url, {
+			method: 'DELETE',
+			headers: {
+				Authorization:
+					'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYmYwNzY5ZTc2NmQ2YzY3MTk5NmIyNiIsImlhdCI6MTU4OTU3ODU1OCwiZXhwIjoxNTg5NjE0NTU4fQ.bQ4hJw16LplhbHhMXo4-mWFM4vEoQOzM-KkYLrCtRpc',
+			},
+		})
 			.then((res) => {
 				setDeleted(true);
 			})
