@@ -53,10 +53,10 @@ const JobEdit = ({ match }) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = `${APIURL}/jobs/`;
+		const url = `${APIURL}/jobs/${match.params.id}`;
 
 		fetch(url, {
-			method: 'POST',
+			method: 'PUT',
 			headers: {
 				'Content-type': 'application/json; charset=UTF-8',
 			},

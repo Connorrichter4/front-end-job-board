@@ -15,7 +15,7 @@ const JobForm = ({ job, handleSubmit, handleChange }) => (
 		<label htmlFor='description'>Description</label>
 		<input
 			placeholder='Description'
-			value={job.director}
+			value={job.description}
 			name='description'
 			onChange={handleChange}
 			id='description'

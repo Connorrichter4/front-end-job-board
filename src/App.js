@@ -4,7 +4,7 @@ import { Link, Route, Switch } from 'react-router-dom';
 import JobsList from './components/JobsList';
 import Job from './components/Job';
 import JobCreate from './components/JobCreate';
-import JobEdit from './components/MovieEdit';
+import JobEdit from './components/JobEdit';
 import JobsHome from './components/JobsHome';
 
 const App = () => (
