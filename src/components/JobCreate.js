@@ -3,26 +3,14 @@ import { Redirect } from 'react-router-dom';
 import { APIURL } from '../config.js';
 import JobForm from './JobForm.js';
 
-const JobEdit = ({ match }) => {
-	const [job, setJob] = useState(null);
+const JobCreate = () => {
+	const initialJobState = {
+		title: '',
+		description: '',
+	};
+	const [job, setJob] = useState(initialJobState);
 	const [createdId, setCreatedId] = useState(null);
 	const [error, setError] = useState(false);
-
-	useEffect(() => {
-		const url = `${APIURL}/jobs/${match.params.id}`;
-		fetch(url)
-			.then((response) => response.json())
-			.then((data) => {
-				console.log(data);
-				setJob({ description: data.description, title: data.title });
-			})
-			.catch(() => {
-				// Update the state if there was an error
-				// so we can give feedback to the user!
-				setError(true);
-			});
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
 
 	const handleChange = (event) => {
 		// Every time the user types or pastes something
@@ -83,17 +71,15 @@ const JobEdit = ({ match }) => {
 	}
 	return (
 		<>
-			<h3>Update Job</h3>
+			<h3>Create a Job</h3>
 			{error && <p>Something went wrong... Please try again!</p>}
-			{job && (
-				<JobForm
-					job={job}
-					handleChange={handleChange}
-					handleSubmit={handleSubmit}
-				/>
-			)}
+			<JobForm
+				job={job}
+				handleChange={handleChange}
+				handleSubmit={handleSubmit}
+			/>
 		</>
 	);
 };
 
-export default JobEdit;
+export default JobCreate;
